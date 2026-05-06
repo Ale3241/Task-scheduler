@@ -10,6 +10,9 @@
   <div class="container">
     <header>
       <h1>TaskMaster Pro: Conquer Your Chaos</h1>
+      <button id="add-action-button" type="button">
+        <img src="assets/icons/plus.svg" alt="Add"> Add Task
+      </button>
     </header>
     
     <table>
@@ -19,6 +22,7 @@
         <th>Description</th>
         <th>Due Date</th>
         <th>Status</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -33,6 +37,12 @@
             <option>Complete</option>
           </select>
         </td>
+        <td>
+          <div id="actions">
+            <button class="action-delete"><img src="assets/icons/delete.svg" alt="Delete"></button>
+            <button class="action-edit"><img src="assets/icons/edit.svg" alt="Edit"></button>
+          </div>
+        </td>
       </tr>
       <tr>
         <td>Finish Project Report</td>
@@ -44,6 +54,12 @@
             <option selected>In process</option>
             <option>Complete</option>
           </select>
+        </td>
+        <td>
+          <div id="actions">
+            <button class="action-delete"><img src="assets/icons/delete.svg" alt="Delete"></button>
+            <button class="action-edit"><img src="assets/icons/edit.svg" alt="Edit"></button>
+          </div>
         </td>
       </tr>
       <tr>
@@ -57,6 +73,12 @@
             <option>Complete</option>
           </select>
         </td>
+        <td>
+          <div id="actions">
+            <button class="action-delete"><img src="assets/icons/delete.svg" alt="Delete"></button>
+            <button class="action-edit"><img src="assets/icons/edit.svg" alt="Edit"></button>
+          </div>
+        </td>
       </tr>
       <tr>
         <td>Exercise</td>
@@ -69,6 +91,12 @@
             <option selected>Complete</option>
           </select>
         </td>
+        <td>
+          <div id="actions">
+            <button class="action-delete"><img src="assets/icons/delete.svg" alt="Delete"></button>
+            <button class="action-edit"><img src="assets/icons/edit.svg" alt="Edit"></button>
+          </div>
+        </td>
       </tr>
       <tr>
         <td>Read Book</td>
@@ -80,6 +108,12 @@
             <option>In process</option>
             <option>Complete</option>
           </select>
+        </td>
+        <td>
+          <div id="actions">
+            <button class="action-delete"><img src="assets/icons/delete.svg" alt="Delete"></button>
+            <button class="action-edit"><img src="assets/icons/edit.svg" alt="Edit"></button>
+          </div>
         </td>
       </tr>
     </tbody>
