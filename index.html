@@ -119,6 +119,45 @@
     </tbody>
   </table>
   </div>
+
+  <div class="overlay hidden">
+    <div id="modal" class="container">
+
+      <h3>Task</h3>
+      <button class="closeModal"><img src="assets/icons/close.svg" alt="Close"></button>
+      
+      <div class="form-group info">
+        <label for="taskName">Task:</label>
+        <input type="text" id="taskName" name="taskName" placeholder="Task Name">
+      </div>
+
+      <div class="form-group info">
+        <label for="taskDescription">Description:</label>
+        <textarea id="taskDescription" name="taskDescription" placeholder="Task Description" rows="3"></textarea>
+      </div>
+
+      <div class="form-group info">
+        <label for="taskDueDate">Due Date:</label>
+        <input type="date" id="taskDueDate" name="taskDueDate">
+      </div>
+
+      <div class="form-group info">
+        <label for="taskStatus">Status:</label>
+        <select name="taskStatus" id="taskStatus">
+          <option value="">Select a status...</option>
+
+          <option value="inProcess">In Process</option>
+          <option value="pending">Pending</option>
+          <option value="complete">Complete</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <input type="submit" name="taskSubmitBtn" id="taskSubmitBtn">
+      </div>
+
+    </div>
+  </div>
   
   <script src="js/storage.js"></script>
   <script src="js/ui.js"></script>
