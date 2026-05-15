@@ -12,7 +12,7 @@ export const inputs = [taskName, taskDescription, taskDueDate, taskStatus];
 
 
 //Close
-function closeModal(){
+export function closeModal(){
     modalOverlay.classList.toggle('hidden');
     clearModal();
 

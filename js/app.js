@@ -1,7 +1,19 @@
 const submitBtn = document.getElementById('taskSubmitBtn');
+const tableEvents = document.getElementById('table')
 
 import { safeTask } from './storage.js';
-import { clearModal, inputs, addTaskToTable } from './ui.js';
+import { 
+    inputs,
+    addTaskToTable, 
+    closeModal,
+    taskName,
+    taskDescription,
+    taskDueDate,
+    taskStatus
+} from './ui.js';
+
+
+// SUBMIT-BTN FUNCTIONALITY
 submitBtn.addEventListener('click', function(event){
     
     event.preventDefault();
@@ -18,13 +30,21 @@ submitBtn.addEventListener('click', function(event){
         }
 
         addTaskToTable(newTask);
-        
         safeTask(newTask);
-        
-        clearModal();
+        closeModal();
         
     } else {
-        alert('Falta algo');
+        alert('No dejes campos vacios!!');
     }
 
-})
+});
+
+
+tableEvents.addEventListener('click', function(event){
+    
+    const btnSelected = event.target.closest('button');
+
+    if(btnSelected.classList.contains('action-edit')){
+        
+    }
+});
