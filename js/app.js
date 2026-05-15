@@ -39,12 +39,18 @@ submitBtn.addEventListener('click', function(event){
 
 });
 
-
+import {selectRow} from './ui.js';
 tableEvents.addEventListener('click', function(event){
     
     const btnSelected = event.target.closest('button');
 
     if(btnSelected.classList.contains('action-edit')){
-        
+        const row = selectRow(event);
+        alert(`Editar tarea con ID: ${row.dataset.id}`);
+    }
+
+
+    if(btnSelected.classList.contains('action-delete')){
+        alert('Eliminar tarea');
     }
 });

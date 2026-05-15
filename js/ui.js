@@ -3,10 +3,10 @@ const modalOverlay = document.querySelector('.overlay')
 const closeModalBtn = document.querySelector('.closeModal');
 
 //INPUTS
-const taskName = document.getElementById('taskName');
-const taskDescription = document.getElementById('taskDescription');
-const taskDueDate = document.getElementById('taskDueDate');
-const taskStatus = document.getElementById('taskStatus');
+export const taskName = document.getElementById('taskName');
+export const taskDescription = document.getElementById('taskDescription');
+export const taskDueDate = document.getElementById('taskDueDate');
+export const taskStatus = document.getElementById('taskStatus');
 
 export const inputs = [taskName, taskDescription, taskDueDate, taskStatus];
 
@@ -24,7 +24,7 @@ export function clearModal(){
     inputs.forEach(element => {
         if(element.tagName === 'SELECT'){
             element.selectedIndex = 0;
-        } else {
+        } else { 
             element.value = '';
         }
     });
@@ -103,3 +103,9 @@ modalOverlay.addEventListener('click', function(event){
 closeModalBtn.addEventListener('click', closeModal);
 
 
+//SELECT ROW TO EDIT AND DELETE
+export function selectRow(event){
+    const row = btnSelected.closest('tr');
+    const taskId = row.dataset.id;
+    return row;
+}
