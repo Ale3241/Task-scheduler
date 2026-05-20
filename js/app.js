@@ -29,7 +29,7 @@ submitBtn.addEventListener('click', function(event){
     //EDIT
     if(submitBtnM.value == 'UPDATE'){
         const updateTask = {
-            id
+            
         }
     } else {
         const newTask = {

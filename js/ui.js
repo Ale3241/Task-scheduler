@@ -26,7 +26,7 @@ export function clearModal(){
     inputs.forEach(element => {
         if(element.tagName === 'SELECT'){
             element.selectedIndex = 0;
-        } else {
+        } else { 
             element.value = '';
         }
     });
