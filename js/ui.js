@@ -3,19 +3,21 @@ const modalOverlay = document.querySelector('.overlay')
 const closeModalBtn = document.querySelector('.closeModal');
 
 //INPUTS
-const taskName = document.getElementById('taskName');
-const taskDescription = document.getElementById('taskDescription');
-const taskDueDate = document.getElementById('taskDueDate');
-const taskStatus = document.getElementById('taskStatus');
+export const taskName = document.getElementById('taskName');
+export const taskDescription = document.getElementById('taskDescription');
+export const taskDueDate = document.getElementById('taskDueDate');
+export const taskStatus = document.getElementById('taskStatus');
 
 export const inputs = [taskName, taskDescription, taskDueDate, taskStatus];
-
 
 //Close
 export function closeModal(){
     modalOverlay.classList.toggle('hidden');
     clearModal();
+}
 
+export function openModal(){
+    modalOverlay.classList.remove('hidden');
 }
 
 
@@ -40,6 +42,7 @@ export function addTaskToTable(newTask){
 
     const nameCell = document.createElement('td');
     nameCell.textContent = newTask.name;
+    row.dataset.name = newTask.name;
     row.appendChild(nameCell);
 
     const descriptionCell = document.createElement('td');
@@ -88,7 +91,7 @@ export function addTaskToTable(newTask){
 
 // CLOSE AND OPEN MODAL
 addTaskBtn.addEventListener('click', function(){
-    modalOverlay.classList.remove('hidden');
+    openModal();
     
 })
 
@@ -103,3 +106,20 @@ modalOverlay.addEventListener('click', function(event){
 closeModalBtn.addEventListener('click', closeModal);
 
 
+//SELECT ROW
+export function getElementHTML(event){
+    const btnSelected = event.target.closest('button');
+    if (!btnSelected) return;
+    const tr = btnSelected.closest('tr');
+    return [btnSelected, tr];
+}
+
+
+//EDIT
+export function editRow(row){
+    if(row){
+        const rowValue = Array.from(row.children).map(td => td.textContent.trim());
+        console.log(rowValue);
+        console.log(row.dataset.id);
+    }
+}
