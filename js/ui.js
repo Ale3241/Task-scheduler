@@ -2,6 +2,8 @@ const addTaskBtn = document.getElementById('add-action-button');
 const modalOverlay = document.querySelector('.overlay')
 const closeModalBtn = document.querySelector('.closeModal');
 
+import { submitBtn } from "./app.js";
+
 //INPUTS
 export const taskName = document.getElementById('taskName');
 export const taskDescription = document.getElementById('taskDescription');
@@ -13,6 +15,8 @@ export const inputs = [taskName, taskDescription, taskDueDate, taskStatus];
 //Close
 export function closeModal(){
     modalOverlay.classList.toggle('hidden');
+    submitBtn.value = 'ADD';
+    delete submitBtn.dataset.editingId;
     clearModal();
 }
 
@@ -42,7 +46,6 @@ export function addTaskToTable(newTask){
 
     const nameCell = document.createElement('td');
     nameCell.textContent = newTask.name;
-    row.dataset.name = newTask.name;
     row.appendChild(nameCell);
 
     const descriptionCell = document.createElement('td');
@@ -118,8 +121,15 @@ export function getElementHTML(event){
 //EDIT
 export function editRow(row){
     if(row){
-        const rowValue = Array.from(row.children).map(td => td.textContent.trim());
-        console.log(rowValue);
-        console.log(row.dataset.id);
+        taskName.value = row.children[0].textContent;
+        taskDescription.value = row.children[1].textContent;
+        taskDueDate.value = row.children[0].textContent;
+        taskStatus.value = row.children[0].textContent;
+    }
+}
+
+export function deleteRow(row){
+    if(row){
+        row.remove();
     }
 }

@@ -1,4 +1,4 @@
-const submitBtn = document.getElementById('taskSubmitBtn');
+export const submitBtn = document.getElementById('taskSubmitBtn');
 const tableEvents = document.getElementById('table')
 
 import { safeTask } from './storage.js';
@@ -10,7 +10,10 @@ import {
     taskName,
     taskDescription,
     taskDueDate,
-    taskStatus
+    taskStatus,
+    getElementHTML, 
+    editRow,
+    deleteRow
 } from './ui.js';
 
 
@@ -27,43 +30,47 @@ submitBtn.addEventListener('click', function(event){
     }
 
     //EDIT
-    if(submitBtnM.value == 'UPDATE'){
-        const updateTask = {
-            
+
+    const editingId = submitBtn.dataset.editingId;
+
+    if(submitBtn.value == 'UPDATE'){
+        const rowToUpdate = document.querySelector(`tr[data-id="${editingId}"]`);
+        if(rowToUpdate) {
+            rowToUpdate.children[0].textContent = taskName.value;
+            rowToUpdate.children[1].textContent = taskDescription.value;
+            rowToUpdate.children[2].textContent = taskDueDate.value;
+            rowToUpdate.children[3].textContent = taskStatus.value;
         }
     } else {
         const newTask = {
-            id: Date.now(),
+            id: Date.now().toString(),
             name: taskName.value,
             description: taskDescription.value,
             dueDate: taskDueDate.value,
             status: taskStatus.value
         }
+        
+        addTaskToTable(newTask);
+        safeTask(newTask);
     }
-
-    
-
-    addTaskToTable(newTask);
-    safeTask(newTask);
     closeModal();
 
 });
 
 
 //EDIT AND DELETE
-import { getElementHTML, editRow } from './ui.js';
 tableEvents.addEventListener('click', function(event) {
     const [btnSelected, tr] = getElementHTML(event);
 
     if (btnSelected.classList.contains('action-edit')) {
         openModal();
         submitBtn.value = 'UPDATE';
+        submitBtn.dataset.editingId = tr.dataset.id;
         editRow(tr);
 
     }
 
     if (btnSelected.classList.contains('action-delete')) {
-        console.log('Deleting ' + tr.dataset.name);
-        tr.remove();
+        deleteRow(tr);
     }
 });
