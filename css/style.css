@@ -18,12 +18,16 @@ body {
     max-width: 1000px;
 }
 
+
+/* Header */
+
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
 }
+
 
 #add-action-button {
     display: inline-flex;
@@ -40,6 +44,82 @@ header {
     width: 16px;
     height: 16px;
 }
+
+button#add-action-button:hover {
+    background-color: #dff0d8;
+    border-color: #5cb85c;
+}
+
+
+
+/* Modal for task inf */
+
+div.overlay{
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0,0,0,0.5);
+}
+
+div.hidden{
+    display: none;
+}
+
+
+div#modal h3{
+    display: inline-block;
+    margin: 10px 0 20px 0;
+}
+
+
+div#modal {
+    width: 35%;
+}
+
+div.form-group {
+    margin-bottom: 10px;
+    display: flex;
+}
+
+div.info {
+    margin-bottom: 25px;
+}
+
+div.form-group input, div.form-group textarea, div.form-group select {
+    margin-left: 10px;
+    flex: 1;
+}
+
+
+div.form-group> textarea {
+    resize: vertical;     
+    min-height: 60px;     
+    max-height: 150px;
+}
+
+
+input#taskSubmitBtn {
+    margin: 0;
+    padding: 5px;
+}
+
+input#taskSubmitBtn:hover {
+    cursor: pointer;
+}
+
+
+button.closeModal {
+    float: right;
+}
+
+
+/* Tabla Style */
+
 
 table {
     border-collapse: collapse;
@@ -77,36 +157,40 @@ button:hover {
 }
 
 button.action-delete,
-button.action-edit {
+button.action-edit,
+button.closeModal,
+input#taskSubmitBtn {
     padding: 8px;
     border: 1px solid #888;
     border-radius: 4px;
     background: #fff;
 }
 
-button.action-delete:hover {
+button.action-delete:hover, 
+button.closeModal:hover {
     background-color: #ffecec;
     border-color: #d9534f;
 }
 
-button.action-edit:hover {
+button.action-edit:hover,
+input#taskSubmitBtn:hover {
     background-color: #eef7ff;
     border-color: #5bc0de;
 }
 
-button#add-action-button:hover {
-    background-color: #dff0d8;
-    border-color: #5cb85c;
-}
 
 button.action-delete img,
-button.action-edit img {
+button.action-edit img,
+button.closeModal img {
     width: 16px;
     height: 16px;
     display: block;
 }
 
-#actions {
+
+
+
+.actions {
     display: flex;
     gap: 8px;
     justify-content: flex-end;

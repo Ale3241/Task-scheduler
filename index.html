@@ -15,7 +15,7 @@
       </button>
     </header>
     
-    <table>
+    <table id="table">
     <thead>
       <tr>
         <th>Task Name</th>
@@ -25,8 +25,8 @@
         <th>Action</th>
       </tr>
     </thead>
-    <tbody>
-      <tr>
+    <tbody id="tbody">
+      <!-- <tr>
         <td>Buy Groceries</td>
         <td>Get milk, bread, and vegetables</td>
         <td>2026-05-07</td>
@@ -38,7 +38,7 @@
           </select>
         </td>
         <td>
-          <div id="actions">
+          <div class="actions">
             <button class="action-delete"><img src="assets/icons/delete.svg" alt="Delete"></button>
             <button class="action-edit"><img src="assets/icons/edit.svg" alt="Edit"></button>
           </div>
@@ -56,7 +56,7 @@
           </select>
         </td>
         <td>
-          <div id="actions">
+          <div class="actions">
             <button class="action-delete"><img src="assets/icons/delete.svg" alt="Delete"></button>
             <button class="action-edit"><img src="assets/icons/edit.svg" alt="Edit"></button>
           </div>
@@ -74,7 +74,7 @@
           </select>
         </td>
         <td>
-          <div id="actions">
+          <div class="actions">
             <button class="action-delete"><img src="assets/icons/delete.svg" alt="Delete"></button>
             <button class="action-edit"><img src="assets/icons/edit.svg" alt="Edit"></button>
           </div>
@@ -92,7 +92,7 @@
           </select>
         </td>
         <td>
-          <div id="actions">
+          <div class="actions">
             <button class="action-delete"><img src="assets/icons/delete.svg" alt="Delete"></button>
             <button class="action-edit"><img src="assets/icons/edit.svg" alt="Edit"></button>
           </div>
@@ -110,18 +110,58 @@
           </select>
         </td>
         <td>
-          <div id="actions">
+          <div class="actions">
             <button class="action-delete"><img src="assets/icons/delete.svg" alt="Delete"></button>
             <button class="action-edit"><img src="assets/icons/edit.svg" alt="Edit"></button>
           </div>
         </td>
-      </tr>
+      </tr> -->
     </tbody>
   </table>
   </div>
+
+  <div class="overlay hidden">
+    <div id="modal" class="container">
+
+      <h3>Task</h3>
+      <button class="closeModal"><img src="assets/icons/close.svg" alt="Close"></button>
+      
+      <div class="form-group info">
+        <label for="taskName">Task:</label>
+        <input type="text" id="taskName" name="taskName" placeholder="Task Name">
+      </div>
+
+      <div class="form-group info">
+        <label for="taskDescription">Description:</label>
+        <textarea id="taskDescription" name="taskDescription" placeholder="Task Description" rows="3"></textarea>
+      </div>
+
+      <div class="form-group info">
+        <label for="taskDueDate">Due Date:</label>
+        <input type="date" id="taskDueDate" name="taskDueDate">
+      </div>
+
+      <div class="form-group info">
+        <label for="taskStatus">Status:</label>
+        <select name="taskStatus" id="taskStatus">
+          <option value="">Select a status...</option>
+
+          <option value="In Process">In Process</option>
+          <option value="Pending">Pending</option>
+          <option value="Complete">Complete</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <input type="submit" name="taskSubmitBtn" id="taskSubmitBtn" value="ADD">
+      </div>
+
+    </div>
+  </div>
   
-  <script src="js/storage.js"></script>
-  <script src="js/ui.js"></script>
-  <script src="js/app.js"></script>
+  <script type="module" src="js/utils.js"></script>
+  <script type="module" src="js/storage.js"></script>
+  <script type="module" src="js/ui.js"></script>
+  <script type="module" src="js/app.js"></script>
 </body>
 </html>
