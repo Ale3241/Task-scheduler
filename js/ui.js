@@ -123,8 +123,8 @@ export function editRow(row){
     if(row){
         taskName.value = row.children[0].textContent;
         taskDescription.value = row.children[1].textContent;
-        taskDueDate.value = row.children[0].textContent;
-        taskStatus.value = row.children[0].textContent;
+        taskDueDate.value = row.children[2].textContent;
+        taskStatus.value = row.children[3].textContent;
     }
 }
 

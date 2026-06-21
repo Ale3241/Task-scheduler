@@ -1,7 +1,12 @@
 export const submitBtn = document.getElementById('taskSubmitBtn');
 const tableEvents = document.getElementById('table')
 
-import { safeTask } from './storage.js';
+import { 
+    safeTask,
+    deleteTask,
+    updateTask
+} from './storage.js';
+
 import { 
     openModal,
     closeModal,
@@ -66,11 +71,13 @@ tableEvents.addEventListener('click', function(event) {
         openModal();
         submitBtn.value = 'UPDATE';
         submitBtn.dataset.editingId = tr.dataset.id;
+        console.log(tr.dataset.id);
         editRow(tr);
-
     }
 
     if (btnSelected.classList.contains('action-delete')) {
+        const taskToDelete = tr.dataset.id;
+        deleteTask(taskToDelete);
         deleteRow(tr);
     }
 });
